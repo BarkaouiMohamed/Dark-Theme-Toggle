@@ -32,7 +32,7 @@ function App() {
               <button>Log In</button>
             </form>
             <div className="bottom">
-              <p>Forget your password</p>
+              <a href='/'>Forget your password</a>
               <a href='/'>Reset you password</a>
             </div>
             <p className="create">Create account</p>
