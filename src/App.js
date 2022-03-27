@@ -2,8 +2,13 @@ import React from 'react'
 import useLocalStorage from 'use-local-storage';
 import './index.css'
 function App() {
+  const [ theme, setTheme ] = useLocalStorage('theme' ? 'dark' : 'light')
+  const switchTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme)
+  }
   return (
-    <div className="app">
+    <div className="app" data-theme={theme}>
         <div className="login">
           <h1>LOGIN</h1>
           <div className="container">
@@ -23,8 +28,8 @@ function App() {
               <div className="remember">
                 <input type="checkbox" checked="checked"/>
                 <p>Remember Me</p>
-                <button>Log In</button>
               </div>
+              <button>Log In</button>
             </form>
             <div className="bottom">
               <p>Forget your password</p>
@@ -34,7 +39,7 @@ function App() {
           </div>
           <div className="theme-toggle">
             <h2>Light Theme</h2>
-            <i className="fa fa-toggle-on"/>
+            <i onClick={switchTheme} class="fa fa-toggle-on"/>
           </div>
         </div>
     </div>
